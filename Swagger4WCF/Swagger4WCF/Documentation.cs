@@ -23,7 +23,7 @@ namespace Swagger4WCF
 
         static public Documentation Load(string location, AssemblyDefinition assembly)
         {
-            var _location = string.Concat(new Uri(Path.GetDirectoryName(location)).LocalPath, @"\", assembly.Name.Name, ".xml");
+            var _location = string.Concat(Path.GetDirectoryName(location), @"\", assembly.Name.Name, ".xml");
             if (File.Exists(_location)) { return new Documentation(_location); }
             return new Documentation();
         }
